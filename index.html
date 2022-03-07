@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>imgur</title>
+  <link rel="stylesheet" href="./index.css">
+  <script src="https://kit.fontawesome.com/41129917e5.js" crossorigin="anonymous"></script>
+
+
+    <style>
+      #search_result{
+          display:grid;
+          grid-template-columns: repeat(4,22%);
+          grid-gap:5%;
+          row-gap: 2%;
+          justify-content: space-between;
+          margin-top: 5%;;
+      }
+      input{
+          width:200px;
+        }
+       
+        #movies{
+            height:200px;
+            width:205px;
+            border:1px solid black;
+            border-top: none;
+            overflow:scroll;
+        }
+      
+
+     
+    </style>
+</head>
+<body>
+  
+ 
+
+    <!-- ************************ -->
+    <div id="navbar">
+        <div id="left">
+          <div>
+              <h2>imgur</h2>
+          </div>
+          <div>
+              <h2 style="background-color: rgb(74, 212, 74);"><i class="fas fa-plus"
+                      style="margin-right: 10px;"></i>New
+                  Post</h2>
+          </div>
+          
+      </div>
+      <div id="center">
+          <input type="text" id="query" placeholder="Search">
+          <i class="fas fa-search" onclick="searchImg()" style="cursor: pointer;"></i>
+      </div>
+      <div id="right">
+          <div>
+              <h2 style="background-color: rgb(76, 76, 219);">Go Ad-Free</h2>
+          </div>
+          <div>
+              <h2>Sign in</h2>
+          </div>
+          <div>
+              <h2 id="bg">Sign up</h2>
+          </div>
+      </div>
+  
+  </div>
+  <div class="text">
+      <h2>Is it GIF or GIF? Either way, we’ve got the best of them.</h2>
+  </div>
+  <div class="tag">
+      <div class="tagText">
+        
+          <h2>
+              <i class="fas fa-dot-circle" style="color: rgb(102, 6, 97); margin-right: 10px;"></i>EXPLORE TAGS
+          </h2>
+         
+
+
+          <h2>
+              MORE TAGS <i class="fas fa-plus" style="color: white; margin-left: 10px;"></i>
+              
+          </h2>
+      </div>
+      <div class="tagDiv">
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTioDA1KTrGBPNXJTHK6xHAZuPIL0EJoUDyOmbyNYa7p1Wbb6WmDolfCa6NFn41AAxOOwY&usqp=CAU"/>
+          </div>
+          <div>
+            <img src="data:image/jpeg;base64,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"/>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTURwxSQO12bN8N9LaRno4j93s8MaxWMh6S4Q&usqp=CAU"/>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-acmbyO1bm0pXCB9hVpFqL_6EIoGvPNCoOA&usqp=CAU"/>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZJz87lGvDeKw-AIO0pALZhef5S3j7j27F8QsXEf0pYh0bzICTrgNa7MMuvp8qTAfAetc&usqp=CAU"/>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqqJZSi0qZ1jvXZIfMdIePFuGVK833v1gOJA&usqp=CAU"/>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Aly38vUA4cLXmaOX55y1fdlXEiWCDt4ApQ&usqp=CAU"/>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr74dOP4IukEXgWFudkc3CgK_mcos1681rxQ&usqp=CAU"/>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs8MyILxVYQBrjHpc0vQypmdLGvEZhRBq10g&usqp=CAU"/>
+          </div>
+      </div>
+  </div>
+   
+ 
+
+    <!-- ********************************** -->
+
+  <div class="search-div">
+    
+    <input type="text" id="search"/>
+    <button onclick="searchvideos()">Search</button>
+    <div id="search_result"></div>
+  </div>
+
+</body>
+</html>
+<script>
+
+let key="AIzaSyDSNLg_c8ej9c8lKegENfvfTcHeNZPL2Mw";
+let movie_div=document.getElementById("movies")
+
+let bomb;
+
+async function searchmovies(){
+   try{
+        let name = document.getElementById("query").value;
+    let response = await fetch(`http://www.omdbapi.com/?s=${name}&apikey=${key}`);
+
+
+    let data=await response.json();
+   // console.log("data:",data);
+    return data.Search;
+   }
+   catch(err)
+   {
+     console.log(err)  
+   }
+
+}
+
+async function displaymovies(){
+   movie_div.innerHTML=null;
+   console.log("firedd after 3 second")
+  let movie_data= await searchmovies();
+  //console.log("movie_data",movie_data);
+
+  if(movie_data===undefined){
+      return false;
+  }
+  console.log("movie_data",movie_data);
+  
+  movie_data.forEach(function(movie){
+      let p=document.createElement("p");
+
+      p.innerText= movie.Title;
+      movie_div.append(p);
+  });
+}
+
+
+function debounce(func,delay){
+    //func->displaymovies()
+
+clearTimeout(bomb);
+
+bomb=setTimeout(function(){
+   func();
+
+},delay);
+}
+   
+    //1.instead of iframe, we need thumbnail(url)
+
+   
+
+    // let url="https://youtube.googleapis.com/youtube/v3/search?q=q&key=[YOUR_API_KEY]"
+
+    let search_result_div=document.getElementById("search_result"); 
+
+     async function searchvideos(){
+      try{
+          let inp = document.getElementById("search").value;
+
+         let res=await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${inp}&key=${key}&maxResults=30&part=snippet`)
+
+      //console.log("response",res)
+
+      let data= await res.json();
+      console.log(data)
+
+      let array_of_videos=data.items;
+      appendvideos(array_of_videos);
+
+      }
+      catch(err){
+          console.log("err",err)
+      }
+  }
+
+    const appendvideos=(arr)=>{
+     
+
+        arr.forEach(({snippet,id:{videoId}}) => {
+
+          let url=snippet.thumbnails.medium.url;
+
+          let div=document.createElement("div")
+
+          let img=document.createElement("img");
+
+          img.src=url;
+
+          let title=snippet.title
+
+          let h4=document.createElement("h4");
+          h4.setAttribute("id","head-div")
+          h4.innerText=title;
+
+          let video_data={
+            snippet,
+            videoId,
+          };
+
+         
+          div.onclick=()=>{
+            showVideo(video_data);
+          };
+ 
+    
+
+
+
+
+
+          div.append(img,h4);
+          
+          search_result_div.append(div)
+
+
+
+
+      });
+
+      
+
+  }
+
+
+
+
+
+
+
+
+</script>
